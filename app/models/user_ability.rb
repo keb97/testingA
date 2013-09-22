@@ -1,17 +1,12 @@
-class Ability
+class UserAbility
   include CanCan::Ability
 
-  def initialize(user)
+ def initialize(user)
+    can :read, :all
+  end
+end
 
-    if user.class.name=='Admin' 
-      can :manage, :all   
-    elif user.class.name=='User'
-      can :read, :all
-    elif user.class.name=="CompanyUser"
-      can :manage, Vehicle
-    else
-     can :read, :all
-    end
+ 
 
 
     # Define abilities for the passed in user here. For example:
@@ -40,5 +35,4 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/ryanb/cancan/wiki/Defining-Abilities
-  end
-end
+

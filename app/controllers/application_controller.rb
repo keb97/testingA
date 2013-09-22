@@ -12,6 +12,21 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << :name
   end
 
+   private
+
+  def current_ability
+  	@current_ability ||= case
+                       when current_user
+                         UserAbility.new(current_user)
+                       when current_admin
+                         AdminAbility.new
+                       when current_company_user
+                         CompanyUserAbility.new(current_company_user)
+                       else
+                         GuestAbility.new
+                       end  
+                   end
+
 
 
 end

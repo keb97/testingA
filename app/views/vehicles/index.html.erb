@@ -24,3 +24,6 @@
 <br>
 
 <%= link_to 'New Vehicle', new_vehicle_path %>
+<% if company_user_signed_in? %>
+  Hello company!
+<% end %>

@@ -1,28 +1,9 @@
-== README
+Some important notes
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+I have commented out the javascript assets in app/views/layouts/application.html.erb because I had to work in Windows, and I was having an issue (I don't remember it anymore but of course I could replicate it by uncommenting)
+What YOU should do is uncomment that line. If you don't, most of the app will work fine, but you will not be able to sign out! 
+(If you do need to become signed out manually, what you can do is go to rails console and put in CompanyUser.last.destroy, or User.last.destroy, or Admin.last.destroy.)
 
-Things you may want to cover:
+I had to remove "type" as a attribute of Vehicle because that is a reserved word that is used for refering to relationships between models.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+I also had to change the database.yml over to Squlite3 because I'm having trouble with my mysql and I did not want to spend time dealing with that. It should have no practical impact on the app at this point.
