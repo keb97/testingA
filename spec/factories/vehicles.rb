@@ -2,9 +2,5 @@
 
 FactoryGirl.define do
   factory :vehicle do
-    make "MyString"
-    rails "MyString"
-    g "MyString"
-    simple_form ""
   end
 end

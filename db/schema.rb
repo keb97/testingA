@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130921041334) do
+ActiveRecord::Schema.define(version: 20130922074117) do
 
   create_table "admins", force: true do |t|
     t.string   "name"
@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 20130921041334) do
     t.datetime "updated_at"
   end
 
-  add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
-  add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
+  add_index "admins", ["email"], name: "index_admins_on_email", unique: true
+  add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
 
   create_table "company_users", force: true do |t|
     t.string   "name"
@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(version: 20130921041334) do
     t.datetime "updated_at"
   end
 
-  add_index "company_users", ["email"], name: "index_company_users_on_email", unique: true, using: :btree
-  add_index "company_users", ["reset_password_token"], name: "index_company_users_on_reset_password_token", unique: true, using: :btree
+  add_index "company_users", ["email"], name: "index_company_users_on_email", unique: true
+  add_index "company_users", ["reset_password_token"], name: "index_company_users_on_reset_password_token", unique: true
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -79,12 +79,11 @@ ActiveRecord::Schema.define(version: 20130921041334) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "vehicles", force: true do |t|
     t.string   "make"
-    t.string   "type"
     t.string   "year"
     t.string   "color"
     t.datetime "created_at"
