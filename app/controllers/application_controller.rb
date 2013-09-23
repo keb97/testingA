@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => exception.message
   end
@@ -19,7 +20,7 @@ class ApplicationController < ActionController::Base
                        when current_user
                          UserAbility.new(current_user)
                        when current_admin
-                         AdminAbility.new
+                         AdminAbility.new(current_admin)
                        when current_company_user
                          CompanyUserAbility.new(current_company_user)
                        else
